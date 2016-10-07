@@ -202,6 +202,9 @@ var storageSystem = (function(){
           }
           return result;
   	};
+		this.clearAll = function() {
+			localStorage.setItem(this.name, JSON.stringify([]));
+		};
   }
   var expirations = new ExpirationSystem("Expirations");
 
@@ -366,9 +369,12 @@ var storageSystem = (function(){
   	    	}
   	  	}
   	}
+		this.clearAll = function() {
+			localStorage.setItem(this.name, JSON.stringify([]));
+		};
   }
   function SessionStorageEngine(name, expiration) {
-      //init
+    //init
   	this.name = name;
   	if (sessionStorage.getItem(name)==null) {
   		var setup = new Array();
@@ -528,6 +534,9 @@ var storageSystem = (function(){
   	    	}
   	  	}
   	}
+		this.clearAll = function() {
+			sessionStorage.setItem(this.name, JSON.stringify([]));
+		};
   }
   return function (name, storageType, ex) {
       this.expiration = ex==undefined||ex==null?false:ex;
