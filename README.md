@@ -45,4 +45,6 @@ loggingSystem.filter([
   "object.description.length>5"
 ]);
 
+// Clear all logs
+loggingSystem.clearAll();
 ```
